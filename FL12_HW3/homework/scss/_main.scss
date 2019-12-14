@@ -1,0 +1,281 @@
+
+*{
+    font-family:$textStyle;
+}
+@mixin button {
+    width: 120px;
+    height: 40px;
+    background-color: color(buttonColor);
+    border-radius: $radius;
+    color: color(whiteColor);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+@mixin links ($colores, $fontWeigt) {
+    font-weight: $fontWeigt;
+    color: $colores;
+}
+body{
+    max-width:1920px;
+    background-color:color(mainPageColor);
+    margin:0;
+    padding:0;
+    
+}
+.landing-logo {
+    display: flex;
+    align-items: center;
+
+
+    & img {
+        height:40px;
+        width:40px;
+        margin: 5px 10px 20px 140px;
+        
+    }
+
+    & p {
+        font-size: 20px;
+        font-weight: 700;
+        color: color(headersColor);
+    }
+
+    & span {
+        display: block;
+        position: relative;
+        left: 10px;
+        font-weight: 700;
+        font-size: 8px;
+        color: color(headersColor);
+    }
+}
+.header {
+    background: url($headBackground) no-repeat;
+    background-size: cover;
+    background-position: right 0px bottom -202px;
+    height: 520px;
+    border-bottom: thin;
+    border-bottom-right-radius: 600px 200px;
+
+}
+.header_heading {
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 75px;
+    font-size: 40px;
+    font-weight: 700;
+    color: color(headersColor);
+    padding-left: 145px;
+    line-height: 1;
+    margin: 0;
+    padding-top: 25px;
+    z-index: 1;
+
+    &:after {
+        content: '';
+        display: block;
+        height: 30px;
+        width: 175px;
+        position: absolute;
+        top: 79px;
+        background-color: color(awesomeColor);
+        z-index: -1;
+    }
+}
+
+.header_text {
+    color: color(headersColor);
+    white-space: pre;
+    font-size: 13px;
+    margin: 0;
+    padding-left: 100px;
+    padding-top: 60px;
+}
+.header_text + div {
+    padding-left: 130px;
+    padding-top: 20px;
+
+   .header_button{
+       @include button;
+
+   }
+
+    & a {
+        @include links(color(whiteColor), $mainFontWeight);
+        padding-left: 100px;
+        padding-top: 110px;        
+    }
+}
+
+.section {
+    .section_text {
+        position: relative;
+        text-align: center;
+        font-size: 40px;
+        padding-top: 1%;
+        margin: 0;
+        font-weight: $mainFontWeight;
+        z-index: 1;
+
+        &:after {
+            content: '';
+            display: block;
+            height: 35px;
+            width: 182px;
+            position: absolute;
+            top: 25px;
+            left:720px;
+            background-color: color(awesomeColor);
+            z-index: -1;
+        }
+    }
+}
+.section_card_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    .section_card {
+        display: flex;
+        align-self: center;
+        padding: 20px;
+        margin: 15px;
+        background-color: color(cardsColor);
+        border-radius: $radius;
+        width: 900px;
+        height: 250px;
+
+
+        .section_card_img {
+            height: 98%;
+            width: 60%;
+            border-radius: $radius;
+        }
+
+        .section_card_right_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 86%;
+
+            .section_card_heading {
+                font-family: $textStyle;
+                font-weight: $mainFontWeight;
+                font-size: 25px;
+                color: white;
+            }
+
+            .section_card_text {
+                font-family: $textStyle;
+                font-size: 13px;
+                font-weight: $mainFontWeight;
+                color: color(linksColor);
+                padding: 0px 70px;
+                text-align: left;
+                line-height:1.5em;
+            }
+
+            .section_link{
+                @include links(color(linksColor), $mainFontWeight); 
+                padding-bottom:40px;
+            }
+        }
+    }
+}
+.section_banner {
+    display: flex;
+    border-radius:$radius;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to right, color(buttonColor), color(gradientColor));
+    padding: 0 160px;
+    width: 71%;
+    bottom: -80px;
+    position: relative;
+    box-sizing: border-box;
+    left: 200px;
+    height:130px;
+
+    button.section_banner_button {
+        @include button;
+    }
+
+    .section_banner_text_wrap {
+
+
+        & .section_banner_heading {
+            position: relative;
+            font-size: 26px;
+            white-space: pre;
+            margin: 0;
+            font-weight: 700;
+            color: color(headersColor);
+            z-index: 1;
+            left:-165px;
+        }
+
+        & :after {
+            content: '';
+            display: block;
+            height: 40px;
+            width: 62px;
+            position: absolute;
+            bottom: 40px;
+            left: 227px;
+            background-color: color(awesomeColor);
+            z-index: -1;
+        }
+
+        & .section_banner_text {
+            position:relative;
+            text-align: center;
+            font-size: 13px;
+            white-space:pre;
+            margin: -35px 30px 40px 20px;
+            padding:0;
+            font-weight: $mainFontWeight;
+            color: color(linksColor);
+            left:-200px;
+        }
+    }
+}
+.footer {
+    padding: 0 200px;
+    background-color: color(cardsColor);
+
+    .footer-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 125px 0 40px 0;
+        font-family: 'Hind', sans-serif;
+        color: color(linksColor);
+
+        & .footer_logo {
+            @extend .landing-logo;
+
+            & img {
+                margin: 13px 10px 10px -100px;
+            }
+
+            & p {
+                color: color(linksColor);
+            }
+
+            & span {
+                color: color(linksColor);
+            }
+        }
+
+        .footer_text {
+            width: 300px;
+            line-height: 19px;
+            margin-top: 15px;
+        }
+    }
+}
+
