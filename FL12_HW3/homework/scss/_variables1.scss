@@ -4,10 +4,3 @@ $textStyle: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $radius: 5px;
 $colors: ( "cardsColor" : #21232e, "headersColor" : #2c2f3c, "buttonColor": #699900, "mainPageColor" : #ffffff, "awesomeColor": #14a0c7, "gradientColor": #2c5adc,"linksColor": #c0c3ce, "whiteColor" : #ffffff);
 
-@function color($key) {
-    @if map-has-key($colors, $key) {
-        @return map-get($colors, $key);
-    }
-    @warn "Unknown `#{$key}` in $colors.";
-    @return null;
-}
