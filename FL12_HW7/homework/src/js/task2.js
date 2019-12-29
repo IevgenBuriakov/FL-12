@@ -21,9 +21,9 @@ alert('You did not become a billionaire, but can.');
         console.log(landingPocket);
         istrue = atempt !== 0 && userAgreed;
         userChoise = +prompt(`Choose a roulet pocket from ${min} to ${max}
-        Atempts left: ${atempt}
-        Total prize: ${totalPrize}$
-        Possible prize at current attempt: ${shouprize}$`);
+Atempts left: ${atempt}
+Total prize: ${totalPrize}$
+Possible prize at current attempt: ${shouprize}$`);
         if(userChoise === landingPocket){
             prize += shouprize;
             userAgreed = confirm(`Congratulation, you won!   Your prize is:${shouprize} $. Do you want to continue?`);
