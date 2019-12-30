@@ -1,9 +1,11 @@
 let min = 0;
 let max = 8;
+let pockets = 8;
 let increm = 4;
 let initiaPriz = 100;
 let userChoise;
 let atempt = 3;
+let initialAtempts = 3;
 let totalPrize = 0;
 let prize = 0;
 let shouprize = initiaPriz;
@@ -31,7 +33,7 @@ Possible prize at current attempt: ${shouprize}$`);
                 totalPrize = prize;
                 maxPrize *= devider;
                 shouprize = maxPrize;
-                atempt = 3;
+                atempt = initialAtempts;
                 max += increm;
                 landingPocket = Math.floor(Math.random() * (max - min+1)) + min;
             }else{
@@ -42,9 +44,9 @@ Possible prize at current attempt: ${shouprize}$`);
                     shouprize = initiaPriz;
                     maxPrize = initiaPriz;
                     prize =0;
-                    atempt = 3;
+                    atempt = initialAtempts;
                     totalPrize= 0;
-                    max = 8;
+                    max = pockets;
                     landingPocket = Math.floor(Math.random() * (max - min+1)) + min;
                 }else{
                     break;
@@ -60,9 +62,9 @@ Possible prize at current attempt: ${shouprize}$`);
                     shouprize = initiaPriz;
                     maxPrize = initiaPriz;
                     prize =0;
-                    atempt = 3;
+                    atempt = initialAtempts;
                     totalPrize= 0;
-                    max = 8;
+                    max = pockets;
                     landingPocket = Math.floor(Math.random() * (max - min+1)) + min;
                 }else{
                     break;
