@@ -1,9 +1,3 @@
-function executeforEach(arr, func) {
-    for(const i of arr){
-      func(i);
-    }
-}
-
 function convert(...args){
     const arr = [];
     for (const i of args){
@@ -15,6 +9,12 @@ function convert(...args){
     }
     return arr;
 } 
+
+function executeforEach(arr, func) {
+    for(const i of arr){
+      func(i);
+    }
+}
 
 function mapArray(a, func){
     let arr = [];
