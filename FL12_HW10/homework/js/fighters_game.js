@@ -18,32 +18,22 @@ function Fighter(fighter) {
        getHealth(){
          return fighter.hp;
        },
-       attac(defender) {
+       attack(defender) {
            const PERCENT = 100;
-           const chanceToGetHit = Math.floor(Math.random() * PERCENT) ;
-           const chanceToavoid = defender.getStrength() + defender.getAgility(); 
-           if (chanceToGetHit < chanceToavoid){
-             console.log(`${this.getName()} attack missed `);
+           if (Math.random() * PERCENT < defender.getStrength() + defender.getAgility()){
+             console.log(`${this.getName()} attack missed`);
            }else{
-             console.log(`${this.getName()} makes ${this.getDamage()} damage to ${defender.getName()} `);
+             console.log(`${this.getName()} makes ${this.getDamage()} damage to ${defender.getName()}`);
              defender.dealDamage(this.getDamage());
            }
         },
         dealDamage(demag) {
           const healthLeft = this.getHealth() - demag;
-          if(healthLeft < 0 ){
-            fighter.hp = 0;
-          }else{
-            fighter.hp = healthLeft;
-          }
+          healthLeft < 0 ? fighter.hp = 0 : fighter.hp = healthLeft;
         },
         heal(amountOfHealth){
           const health = this.getHealth() + amountOfHealth;
-          if(health > totalHp) {
-            fighter.hp = totalHp;
-          }else{
-            fighter.hp = health;
-          } 
+          health > totalHp ? fighter.hp = totalHp : fighter.hp = health;
         }, 
         addWin(){
            fighter.wins++;
@@ -81,4 +71,3 @@ function Fighter(fighter) {
       }
     }
   }
- 
