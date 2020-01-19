@@ -1,6 +1,6 @@
 function Fighter(fighter) {
-    fighter.wins = 0;
-    fighter.loss = 0;
+    let wins = 0;
+    let loss = 0;
     const totalHp = fighter.hp;
     return {
        getName(){
@@ -29,28 +29,28 @@ function Fighter(fighter) {
         },
         dealDamage(demag) {
           const healthLeft = this.getHealth() - demag;
-          healthLeft < 0 ? fighter.hp = 0 : fighter.hp = healthLeft;
+          fighter.hp = healthLeft < 0 ? 0 : healthLeft;
         },
         heal(amountOfHealth){
           const health = this.getHealth() + amountOfHealth;
-          health > totalHp ? fighter.hp = totalHp : fighter.hp = health;
+          fighter.hp = health > totalHp ? totalHp : health;
         }, 
         addWin(){
-           fighter.wins++;
+           wins++;
         },
         addLoss(){
-           fighter.loss++;
+           loss++;
         },
         logCombatHistory(){
-          console.log(`Name: ${this.getName()}, Wins: ${fighter.wins}, Losses: ${fighter.loss}`);
+          console.log(`Name: ${this.getName()}, Wins: ${wins}, Losses: ${loss}`);
         }
     }
   }
   
   function battle(fighter1, fighter2){
-    if(fighter1.getHealth() === 0){
+    if(!fighter1.getHealth()){
       console.log(`${fighter1.getName()} is dead and can't fight`);
-    }else if(fighter2.getHealth() === 0){
+    }else if(!fighter2.getHealth()){
       console.log(`${fighter2.getName()} is dead and can't fight`);
     }else{
        while(fighter2.getHealth() && fighter1.getHealth()){
