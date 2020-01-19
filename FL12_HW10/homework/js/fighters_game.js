@@ -54,14 +54,14 @@ function Fighter(fighter) {
       console.log(`${fighter2.getName()} is dead and can't fight`);
     }else{
        while(fighter2.getHealth() && fighter1.getHealth()){
-        fighter1.attac(fighter2);
+        fighter1.attack(fighter2);
         if(!fighter2.getHealth()){
           fighter1.addWin();
           fighter2.addLoss();
           console.log(`${fighter1.getName()} has won!`);
           return;
         }
-        fighter2.attac(fighter1);
+        fighter2.attack(fighter1);
         if(!fighter1.getHealth()){
           fighter2.addWin();
           fighter1.addLoss();
