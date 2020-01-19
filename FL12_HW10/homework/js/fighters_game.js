@@ -1,7 +1,7 @@
 function Fighter(fighter) {
-    let wins = 0;
-    let loss = 0;
-    let totalHp = fighter.hp;
+    fighter.wins = 0;
+    fighter.loss = 0;
+    const totalHp = fighter.hp;
     return {
        getName(){
         return fighter.name;
@@ -19,19 +19,18 @@ function Fighter(fighter) {
          return fighter.hp;
        },
        attac(defender) {
-         let percent = 100;
-           let chanceToGetHit = Math.floor(Math.random() * percent) ;
-           let chanceToavoid = defender.getStrength() + defender.getAgility(); 
+           const PERCENT = 100;
+           const chanceToGetHit = Math.floor(Math.random() * PERCENT) ;
+           const chanceToavoid = defender.getStrength() + defender.getAgility(); 
            if (chanceToGetHit < chanceToavoid){
              console.log(`${this.getName()} attack missed `);
-          } else{
+           }else{
              console.log(`${this.getName()} makes ${this.getDamage()} damage to ${defender.getName()} `);
              defender.dealDamage(this.getDamage());
-          }
+           }
         },
         dealDamage(demag) {
-          let health = this.getHealth();
-          let healthLeft = health - demag;
+          const healthLeft = this.getHealth() - demag;
           if(healthLeft < 0 ){
             fighter.hp = 0;
           }else{
@@ -39,7 +38,7 @@ function Fighter(fighter) {
           }
         },
         heal(amountOfHealth){
-          let health = this.getHealth() + amountOfHealth;
+          const health = this.getHealth() + amountOfHealth;
           if(health > totalHp) {
             fighter.hp = totalHp;
           }else{
@@ -47,15 +46,14 @@ function Fighter(fighter) {
           } 
         }, 
         addWin(){
-          return wins++;
+           fighter.wins++;
         },
         addLoss(){
-          return loss++;
+           fighter.loss++;
         },
         logCombatHistory(){
-          return `Name: ${this.getName()}, Wins: ${wins}, Losses: ${loss} `
+          console.log(`Name: ${this.getName()}, Wins: ${fighter.wins}, Losses: ${fighter.loss}`);
         }
-  
     }
   }
   
@@ -65,20 +63,22 @@ function Fighter(fighter) {
     }else if(fighter2.getHealth() === 0){
       console.log(`${fighter2.getName()} is dead and can't fight`);
     }else{
-      while(fighter2.getHealth() > 0 && fighter1.getHealth() > 0){
+       while(fighter2.getHealth() && fighter1.getHealth()){
         fighter1.attac(fighter2);
+        if(!fighter2.getHealth()){
+          fighter1.addWin();
+          fighter2.addLoss();
+          console.log(`${fighter1.getName()} has won!`);
+          return;
+        }
         fighter2.attac(fighter1);
+        if(!fighter1.getHealth()){
+          fighter2.addWin();
+          fighter1.addLoss();
+          console.log(`${fighter2.getName()} has won!`);
+          return;
+        }
       }
-      if(fighter1.getHealth() > 0 ){
-        console.log(`${fighter1.getName()} has won!`);
-        fighter1.addWin();
-        fighter2.addLoss();
-      }else{
-        console.log(`${fighter2.getName()} has won!`);
-        fighter2.addWin();
-        fighter1.addLoss();
-      }
-      
     }
   }
  
