@@ -37,7 +37,6 @@ function Fighter(fighter) {
           }else{
             fighter.hp = healthLeft;
           }
-          return fighter.hp; 
         },
         heal(amountOfHealth){
           let health = this.getHealth() + amountOfHealth;
@@ -46,7 +45,6 @@ function Fighter(fighter) {
           }else{
             fighter.hp = health;
           } 
-          return fighter.hp; 
         }, 
         addWin(){
           return wins++;
