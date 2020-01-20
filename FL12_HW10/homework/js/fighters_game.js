@@ -2,21 +2,28 @@ function Fighter(fighter) {
     let wins = 0;
     let loss = 0;
     const totalHp = fighter.hp;
+    let fighterName = fighter.name;
+    let fighterDamage = fighter.damage;
+    let fighterStrength = fighter.strength;
+    let fighterAgility = fighter.agility;
+    function fighterHp(){
+      return fighter.hp;
+    }
     return {
        getName(){
-        return fighter.name;
+        return fighterName;
        },
        getDamage(){
-         return fighter.damage;
+         return fighterDamage;
        },
        getStrength(){
-         return fighter.strength;
+         return fighterStrength;
        },
        getAgility(){
-         return fighter.agility;
+         return fighterAgility;
        },
        getHealth(){
-         return fighter.hp;
+         return fighterHp();
        },
        attack(defender) {
            const PERCENT = 100;
