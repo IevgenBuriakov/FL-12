@@ -2,10 +2,10 @@ function Fighter(fighter) {
     let wins = 0;
     let loss = 0;
     const totalHp = fighter.hp;
-    let fighterName = fighter.name;
-    let fighterDamage = fighter.damage;
-    let fighterStrength = fighter.strength;
-    let fighterAgility = fighter.agility;
+    const fighterName = fighter.name;
+    const fighterDamage = fighter.damage;
+    const fighterStrength = fighter.strength;
+    const fighterAgility = fighter.agility;
     let fighterHp = fighter.hp;
     return {
        getName(){
