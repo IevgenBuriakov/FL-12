@@ -6,9 +6,7 @@ function Fighter(fighter) {
     let fighterDamage = fighter.damage;
     let fighterStrength = fighter.strength;
     let fighterAgility = fighter.agility;
-    function fighterHp(){
-      return fighter.hp;
-    }
+    let fighterHp = fighter.hp;
     return {
        getName(){
         return fighterName;
@@ -23,7 +21,7 @@ function Fighter(fighter) {
          return fighterAgility;
        },
        getHealth(){
-         return fighterHp();
+         return fighterHp;
        },
        attack(defender) {
            const PERCENT = 100;
@@ -36,11 +34,11 @@ function Fighter(fighter) {
         },
         dealDamage(demag) {
           const healthLeft = this.getHealth() - demag;
-          fighter.hp = healthLeft < 0 ? 0 : healthLeft;
+          fighterHp = healthLeft < 0 ? 0 : healthLeft;
         },
         heal(amountOfHealth){
           const health = this.getHealth() + amountOfHealth;
-          fighter.hp = health > totalHp ? totalHp : health;
+          fighterHp = health > totalHp ? totalHp : health;
         }, 
         addWin(){
            wins++;
