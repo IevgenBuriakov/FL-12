@@ -1,0 +1,37 @@
+
+ul {
+	cursor: pointer;
+	list-style-type: none;
+	padding-left: 10px;
+}
+ul li{
+	padding: 1px 0;
+}
+ul li:hover{
+	background-color: rgba(0,0,0,.05);
+}
+
+.ul {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.empty + ul{
+	font-style: italic; 
+}
+
+.material-icons{
+	font-size: 18px;
+	vertical-align: bottom;
+	color: #EDBC0B;
+	user-select: none;
+	margin-right: 2px;
+}
+
+.file i {
+	color: rgba(0,0,0,.2);
+}
+
